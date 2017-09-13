@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN" "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app>
+  <description>Documentatio and examples for the Display Tag Library.</description>
+  <servlet>
+    <servlet-name>DisplaySource</servlet-name>
+    <display-name>DisplaySource</display-name>
+    <description>display source of sample jsp pages</description>
+    <servlet-class>org.displaytag.sample.DisplaySourceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>3</param-value>
+    </init-param>
+    <init-param>
+      <param-name>detail</param-name>
+      <param-value>3</param-value>
+    </init-param>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplaySource</servlet-name>
+    <url-pattern>*.source</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <mime-mapping>
+    <extension>css</extension>
+    <mime-type>text/css</mime-type>
+  </mime-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/404.jsp</location>
+  </error-page>
+  <taglib>
+    <taglib-uri>http://displaytag.sourceforge.net/</taglib-uri>
+    <taglib-location>/WEB-INF/displaytag-11.tld</taglib-location>
+  </taglib>
+</web-app>
+
